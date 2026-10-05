@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="description" content="Taller Conectado: propuesta para el taller Kilómetro 0 de Medellín.">
+<title>Taller Conectado · Propuesta</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400..700&family=Public+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body { background: #0B141D; overflow: hidden; font-family: 'Public Sans', Verdana, sans-serif; }
+  #viewport { position: fixed; inset: 0; }
+  #stage { position: absolute; top: 50%; left: 50%; width: 1920px; height: 1080px; transform-origin: center; }
+  #stage > section { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: hidden; }
+  #stage > section.off { display: none !important; }
+  #stage > section.on { animation: fadein .35s ease; }
+  @keyframes fadein { from { opacity: 0 } }
+  #stage hr { border: none; }
+  #stage ul { padding-left: 1.15em; }
+  #stage li { margin: .12em 0; }
+  #stage img { display: block; max-width: 100%; }
+  x-icon { display: inline-flex; flex: none; }
+  x-icon svg { width: 100%; height: 100%; display: block; }
+  #hud { position: fixed; right: 16px; bottom: 14px; display: flex; align-items: center; gap: 6px;
+         background: rgba(11,20,29,.72); border: 1px solid rgba(255,255,255,.14); border-radius: 999px;
+         padding: 6px 10px; color: #D7DEE6; font-size: 14px; user-select: none; z-index: 10; }
+  #hud button { all: unset; cursor: pointer; width: 34px; height: 34px; border-radius: 50%; display: grid;
+                place-items: center; color: #D7DEE6; font-size: 20px; line-height: 1; }
+  #hud button:hover { background: rgba(255,255,255,.12); }
+  #hud .num { min-width: 52px; text-align: center; letter-spacing: 1px; font-variant-numeric: tabular-nums; }
+  @media (max-width: 700px) { #hud { right: 50%; transform: translateX(50%); } }
+</style>
+</head>
+<body>
+<div id="viewport">
+  <div id="stage">
+    <section id="portada" data-transition="fade" style="background:#182A3D;color:#F4EFE4;font-family:'Public Sans', Verdana, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:28px">
+    <p style="font-size:28px;font-weight:700;color:#E9A13B;letter-spacing:4px;text-transform:uppercase">Propuesta para el taller Kilómetro 0 · Medellín</p>
+    <h1 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:150px;font-weight:600;line-height:1.05;color:#F4EFE4">Taller Conectado</h1>
+    <hr style="width:220px;border-top:6px solid #E9A13B">
+    <p style="font-size:42px;color:#AEBDCB;width:1300px;line-height:1.3">El sistema que centraliza la información del taller y trae a sus clientes de vuelta.</p>
+    <div style="flex:1"></div>
+    <div style="display:flex;justify-content:space-between">
+    <p style="font-size:26px;color:#AEBDCB">Mauricio Márquez Gutiérrez</p>
+    <p style="font-size:26px;color:#AEBDCB">Octubre de 2026</p>
+    </div>
+    </section>
+    <section id="problema" data-transition="fade" style="background:#F8F6F1;color:#182A3D;font-family:'Public Sans', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
+    <h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:68px;font-weight:600;line-height:1.1">Hoy la información del taller está regada</h2>
+    <div style="display:flex;gap:24px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border:1px solid #E2DFD6;border-radius:16px">
+    <h3 style="font-size:30px;font-weight:700">Recepción</h3>
+    <p style="font-size:25px;color:#44505C;line-height:1.35">Planillas y cuaderno que nadie más ve</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border:1px solid #E2DFD6;border-radius:16px">
+    <h3 style="font-size:30px;font-weight:700">Contabilidad</h3>
+    <p style="font-size:25px;color:#44505C;line-height:1.35">Su propio Excel: 3.600 órdenes y 900 clientes aparte</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border:1px solid #E2DFD6;border-radius:16px">
+    <h3 style="font-size:30px;font-weight:700">Mecánicos</h3>
+    <p style="font-size:25px;color:#44505C;line-height:1.35">Hallazgos en papel y de palabra</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border:1px solid #E2DFD6;border-radius:16px">
+    <h3 style="font-size:30px;font-weight:700">Los avisos</h3>
+    <p style="font-size:25px;color:#44505C;line-height:1.35">Salen de un WhatsApp personal, sin registro</p>
+    </div>
+    </div>
+    <div style="flex:1"></div>
+    <div style="background:#182A3D;padding:40px 48px;border-radius:16px">
+    <p style="font-size:36px;color:#F4EFE4;line-height:1.35">Los perfiles no se hablan entre sí. Resultado: solo <span style="color:#E9A13B"><b>15 de cada 100</b></span> clientes vuelven — a los demás nadie les avisa a tiempo.</p>
+    </div>
+    </section>
+    <section id="oportunidad" data-transition="fade" style="background:#182A3D;color:#F4EFE4;font-family:'Public Sans', Verdana, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:36px">
+    <p style="font-size:28px;font-weight:700;color:#E9A13B;letter-spacing:4px;text-transform:uppercase">La oportunidad</p>
+    <h1 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:130px;font-weight:600;line-height:1.05;color:#F4EFE4">$6,7 millones más al mes</h1>
+    <p style="font-size:38px;color:#AEBDCB;width:1500px;line-height:1.4">Eso vale pasar del 15 % al 30 % de clientes que vuelven: unas <b>22 visitas adicionales</b> cada mes, con un ticket promedio de $300.000.</p>
+    <p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6E8097;width:1400px">Cifras del levantamiento hecho en el taller · 1 de octubre de 2026</p>
+    </section>
+    <section id="solucion" data-transition="fade" style="background:#F8F6F1;color:#182A3D;font-family:'Public Sans', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
+    <h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:68px;font-weight:600;line-height:1.1">Un solo sistema, cada quien con su perfil</h2>
+    <div style="display:flex;gap:24px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFF6E6;padding:32px;border:2px solid #E9A13B;border-radius:16px">
+    <h3 style="font-size:30px;font-weight:700">Administrador</h3>
+    <p style="font-size:25px;color:#44505C;line-height:1.35">Mario ve todo unificado: embudo, costos, margen y ranking de clientes</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border:1px solid #E2DFD6;border-radius:16px">
+    <h3 style="font-size:30px;font-weight:700">Recepción</h3>
+    <p style="font-size:25px;color:#44505C;line-height:1.35">Órdenes, citas, kilometraje y la bandeja de WhatsApp</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border:1px solid #E2DFD6;border-radius:16px">
+    <h3 style="font-size:30px;font-weight:700">Mecánico</h3>
+    <p style="font-size:25px;color:#44505C;line-height:1.35">Checklist de ingreso con fotos desde el celular</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;padding:32px;border:1px solid #E2DFD6;border-radius:16px">
+    <h3 style="font-size:30px;font-weight:700">Contabilidad</h3>
+    <p style="font-size:25px;color:#44505C;line-height:1.35">Registra repuestos y mano de obra: la fuente del dato contable</p>
+    </div>
+    </div>
+    <div style="flex:1"></div>
+    <p style="font-size:32px;color:#44505C;line-height:1.4;width:1600px">Nadie cambia su forma de trabajar: <b>cambia dónde queda la información</b> — y el panel del administrador la une toda para decidir con datos.</p>
+    </section>
+    <section id="motor" data-transition="fade" style="background:#F8F6F1;color:#182A3D;font-family:'Public Sans', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:28px">
+    <h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:68px;font-weight:600;line-height:1.1">El motor inteligente multiestados</h2>
+    <div style="background:#FFFFFF;border:1px solid #E2DFD6;border-radius:16px;padding:20px;display:flex;flex-direction:column;align-items:center">
+    <img src="assets/ciclo-motor.png" alt="Ciclo del motor: servicio cerrado, motor de condiciones, aviso por WhatsApp, cita agendada, nueva orden, y vuelve a empezar" style="width:1148px;height:560px;object-fit:contain">
+    </div>
+    <div style="display:flex;gap:24px">
+    <div style="flex:1;display:flex;flex-direction:row;align-items:center;gap:16px;background:#FFFFFF;padding:24px 28px;border:1px solid #E2DFD6;border-radius:16px">
+    <x-icon name="Lock" style="color:#E9A13B;width:36px;height:36px"></x-icon>
+    <p style="font-size:25px;color:#44505C;line-height:1.3">Sin autorización de datos (Ley 1581) no sale ningún mensaje</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:row;align-items:center;gap:16px;background:#FFFFFF;padding:24px 28px;border:1px solid #E2DFD6;border-radius:16px">
+    <x-icon name="Clock" style="color:#E9A13B;width:36px;height:36px"></x-icon>
+    <p style="font-size:25px;color:#44505C;line-height:1.3">Todo se envía solo en el horario del taller: 08:30 a 16:30</p>
+    </div>
+    </div>
+    </section>
+    <section id="fase1" data-transition="fade" style="background:#F8F6F1;color:#182A3D;font-family:'Public Sans', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:36px">
+    <h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:68px;font-weight:600;line-height:1.1">Fase 1: diez módulos, ya construidos</h2>
+    <div style="display:flex;gap:40px">
+    <div style="width:820px;display:flex;flex-direction:column;gap:14px">
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Panel con perfiles</b> — los cuatro roles del taller</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Orden e historial</b> por vehículo</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Checklist de ingreso</b> con fotos</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Cotización por WhatsApp</b> con aprobación ítem por ítem</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Avisos por kilometraje</b> proyectado al uso real</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Avisos de SOAT y tecnomecánica</b> a 30, 15 y 3 días</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Citas</b> ligadas al aviso</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Autorización de datos</b> · Ley 1581</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Registro de eventos</b> para medir resultados</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:14px"><x-icon name="Check" style="color:#1E7A4A;width:28px;height:28px"></x-icon><p style="font-size:26px;color:#44505C"><b>Costos y rentabilidad</b> con ranking de clientes</p></div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:12px;background:#FFFFFF;border:1px solid #E2DFD6;border-radius:16px;padding:24px;align-items:center">
+    <img src="assets/tablero.png" alt="Tablero real del panel de Taller Conectado con órdenes y avisos de demostración" style="width:700px;height:600px;object-fit:contain">
+    <p style="font-size:24px;color:#6E7B88">El panel real, corriendo con datos de demostración</p>
+    </div>
+    </div>
+    </section>
+    <section id="cronograma" data-transition="fade" style="background:#F8F6F1;color:#182A3D;font-family:'Public Sans', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
+    <h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:68px;font-weight:600;line-height:1.1">Dos meses desde la aprobación</h2>
+    <div style="display:flex;gap:20px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;padding:28px 24px;border:1px solid #E2DFD6;border-radius:16px">
+    <p style="font-size:24px;font-weight:700;color:#E9A13B;letter-spacing:2px">SEM 1–2</p>
+    <h3 style="font-size:28px;font-weight:700">Instalación</h3>
+    <p style="font-size:24px;color:#44505C;line-height:1.3">Hosting, perfiles, catálogo y carga del histórico</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;padding:28px 24px;border:1px solid #E2DFD6;border-radius:16px">
+    <p style="font-size:24px;font-weight:700;color:#E9A13B;letter-spacing:2px">SEM 3–5</p>
+    <h3 style="font-size:28px;font-weight:700">Piloto</h3>
+    <p style="font-size:24px;color:#44505C;line-height:1.3">Órdenes reales en recepción, checklist y cotizaciones</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;padding:28px 24px;border:1px solid #E2DFD6;border-radius:16px">
+    <p style="font-size:24px;font-weight:700;color:#E9A13B;letter-spacing:2px">SEM 6–7</p>
+    <h3 style="font-size:28px;font-weight:700">Costos y avisos</h3>
+    <p style="font-size:24px;color:#44505C;line-height:1.3">Margen por orden y motor de avisos activo</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFFFFF;padding:28px 24px;border:1px solid #E2DFD6;border-radius:16px">
+    <p style="font-size:24px;font-weight:700;color:#E9A13B;letter-spacing:2px">SEM 8</p>
+    <h3 style="font-size:28px;font-weight:700">Capacitación</h3>
+    <p style="font-size:24px;color:#44505C;line-height:1.3">Todo el equipo entrenado, mensajes afinados</p>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FFF6E6;padding:28px 24px;border:2px solid #E9A13B;border-radius:16px">
+    <p style="font-size:24px;font-weight:700;color:#E9A13B;letter-spacing:2px">SEM 9</p>
+    <h3 style="font-size:28px;font-weight:700">Entrega</h3>
+    <p style="font-size:24px;color:#44505C;line-height:1.3">Fase 1 completa operando</p>
+    </div>
+    </div>
+    <p style="font-size:30px;color:#44505C;line-height:1.4">Durante el desarrollo se revisa el avance con el equipo: los <b>reajustes están incluidos</b> y los módulos nuevos se acuerdan sin frenar la entrega.</p>
+    <div style="flex:1"></div>
+    <div style="background:#182A3D;padding:40px 48px;border-radius:16px">
+    <p style="font-size:36px;color:#F4EFE4;line-height:1.35">Aprobando la primera semana de octubre, el taller estrena sistema el <span style="color:#E9A13B"><b>1 de diciembre de 2026</b></span>.</p>
+    </div>
+    </section>
+    <section id="opciones" data-transition="fade" style="background:#F8F6F1;color:#182A3D;font-family:'Public Sans', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:36px">
+    <h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:68px;font-weight:600;line-height:1.1">Dos maneras de hacerlo — usted elige</h2>
+    <div style="display:flex;gap:32px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFFFFF;padding:40px;border:1px solid #E2DFD6;border-radius:16px">
+    <h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:34px;font-weight:600">Opción A · Desarrollo a la medida</h3>
+    <p style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:60px;font-weight:600;color:#1E7A4A">$10.000.000</p>
+    <p style="font-size:25px;color:#44505C">50 % al aprobar · 50 % a la entrega operando</p>
+    <hr style="border-top:1px solid #E2DFD6">
+    <ul style="font-size:26px;color:#44505C;line-height:1.5">
+    <li>El software queda a nombre de Kilómetro 0</li>
+    <li>No se le vende a ningún otro taller</li>
+    </ul>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:16px;background:#FFF6E6;padding:40px;border:2px solid #E9A13B;border-radius:16px">
+    <h3 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:34px;font-weight:600">Opción B · Piloto de producto</h3>
+    <p style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:60px;font-weight:600;color:#1E7A4A">$5.000.000</p>
+    <p style="font-size:25px;color:#44505C">$2,5 al iniciar · $2,5 al desplegar en producción</p>
+    <hr style="border-top:1px solid #E9C98A">
+    <ul style="font-size:26px;color:#44505C;line-height:1.5">
+    <li>Licencia de uso permanente para Kilómetro 0</li>
+    <li>Exclusividad en todo el Valle de Aburrá por 12 meses</li>
+    <li>El producto es del desarrollador; KM0 es el taller piloto</li>
+    </ul>
+    </div>
+    </div>
+    <div style="flex:1"></div>
+    <p style="font-size:30px;color:#44505C;line-height:1.4">La Fase 1 es <b>idéntica</b> en ambas opciones. Mensualidad igual: <b>$500.000</b> de mantenimiento y soporte desde la operación, y los datos siempre son del taller.</p>
+    </section>
+    <section id="retorno" data-transition="fade" style="background:#182A3D;color:#F4EFE4;font-family:'Public Sans', Verdana, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:36px">
+    <p style="font-size:28px;font-weight:700;color:#E9A13B;letter-spacing:4px;text-transform:uppercase">El retorno</p>
+    <h1 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:110px;font-weight:600;line-height:1.1;color:#F4EFE4;width:1600px">La mensualidad se paga con 2 carros que vuelvan</h1>
+    <p style="font-size:36px;color:#AEBDCB;width:1550px;line-height:1.4">Y no toca creer: el embudo se mide solo — avisos, respuestas, citas y visitas — y usted recibe un <b>reporte mensual</b> con los números reales. Meta de la Fase 1: del 15 % al 30 %.</p>
+    <p style="position:absolute;left:128px;bottom:64px;font-size:24px;color:#6E8097">$500.000 de mensualidad frente a un ticket promedio de $300.000 por visita</p>
+    </section>
+    <section id="garantias" data-transition="fade" style="background:#F8F6F1;color:#182A3D;font-family:'Public Sans', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:40px">
+    <h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:68px;font-weight:600;line-height:1.1">Compromisos por escrito</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+    <div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;padding:36px;border:1px solid #E2DFD6;border-radius:16px">
+    <x-icon name="Database" style="color:#E9A13B;width:44px;height:44px"></x-icon>
+    <h3 style="font-size:30px;font-weight:700">Los datos son del taller</h3>
+    <p style="font-size:26px;color:#44505C;line-height:1.35">Base exportable completa cuando usted la pida; si el servicio termina, se entrega todo</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;padding:36px;border:1px solid #E2DFD6;border-radius:16px">
+    <x-icon name="Lock" style="color:#E9A13B;width:44px;height:44px"></x-icon>
+    <h3 style="font-size:30px;font-weight:700">Ley 1581 de protección de datos</h3>
+    <p style="font-size:26px;color:#44505C;line-height:1.35">Cada cliente con su autorización registrada; sin ella, el sistema bloquea el mensaje</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;padding:36px;border:1px solid #E2DFD6;border-radius:16px">
+    <x-icon name="Key" style="color:#E9A13B;width:44px;height:44px"></x-icon>
+    <h3 style="font-size:30px;font-weight:700">Seguridad por rol</h3>
+    <p style="font-size:26px;color:#44505C;line-height:1.35">Usuario y clave individual por persona, con permisos según lo que cada quien hace</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;padding:36px;border:1px solid #E2DFD6;border-radius:16px">
+    <x-icon name="Verified" style="color:#E9A13B;width:44px;height:44px"></x-icon>
+    <h3 style="font-size:30px;font-weight:700">Proyecto independiente</h3>
+    <p style="font-size:26px;color:#44505C;line-height:1.35">Jornada y recursos propios del proyecto, por fuera de LIS; su aprobación deja constancia</p>
+    </div>
+    </div>
+    </section>
+    <section id="arranque" data-transition="fade" style="background:#F8F6F1;color:#182A3D;font-family:'Public Sans', Verdana, sans-serif;padding:128px;display:flex;flex-direction:column;gap:36px">
+    <h2 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:68px;font-weight:600;line-height:1.1">Para arrancar el reloj necesito de usted</h2>
+    <div style="display:flex;flex-direction:column;gap:18px">
+    <div style="display:flex;flex-direction:row;align-items:center;gap:18px;background:#FFFFFF;padding:24px 32px;border:1px solid #E2DFD6;border-radius:16px"><x-icon name="CheckCircle" style="color:#E9A13B;width:36px;height:36px"></x-icon><p style="font-size:30px;color:#182A3D">El número que usaremos para WhatsApp</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:18px;background:#FFFFFF;padding:24px 32px;border:1px solid #E2DFD6;border-radius:16px"><x-icon name="CheckCircle" style="color:#E9A13B;width:36px;height:36px"></x-icon><p style="font-size:30px;color:#182A3D">El Excel histórico de contabilidad</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:18px;background:#FFFFFF;padding:24px 32px;border:1px solid #E2DFD6;border-radius:16px"><x-icon name="CheckCircle" style="color:#E9A13B;width:36px;height:36px"></x-icon><p style="font-size:30px;color:#182A3D">Los nombres del grupo piloto de clientes</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:18px;background:#FFFFFF;padding:24px 32px;border:1px solid #E2DFD6;border-radius:16px"><x-icon name="CheckCircle" style="color:#E9A13B;width:36px;height:36px"></x-icon><p style="font-size:30px;color:#182A3D">Los intervalos del catálogo de servicios validados</p></div>
+    <div style="display:flex;flex-direction:row;align-items:center;gap:18px;background:#FFFFFF;padding:24px 32px;border:1px solid #E2DFD6;border-radius:16px"><x-icon name="CheckCircle" style="color:#E9A13B;width:36px;height:36px"></x-icon><p style="font-size:30px;color:#182A3D">El texto de autorización de datos y el horario de contacto</p></div>
+    </div>
+    <div style="flex:1"></div>
+    <p style="font-size:30px;color:#44505C;line-height:1.4">Con esto resuelto en la semana 1, la entrega del <b>1 de diciembre</b> queda asegurada.</p>
+    </section>
+    <section id="cierre" data-transition="fade" style="background:#182A3D;color:#F4EFE4;font-family:'Public Sans', Verdana, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;justify-content:center;gap:36px">
+    <p style="font-size:28px;font-weight:700;color:#E9A13B;letter-spacing:4px;text-transform:uppercase">Siguiente paso</p>
+    <h1 style="font-family:'Oswald', 'Trebuchet MS', sans-serif;font-size:150px;font-weight:600;line-height:1.05;color:#F4EFE4">¿Arrancamos?</h1>
+    <p style="font-size:38px;color:#AEBDCB;width:1500px;line-height:1.4">Elija la opción A o B, firmamos la propuesta y el <b>1 de diciembre de 2026</b> Kilómetro 0 está operando con su sistema.</p>
+    <div style="position:absolute;left:128px;bottom:64px;display:flex;flex-direction:row;justify-content:space-between;width:1664px">
+    <p style="font-size:24px;color:#6E8097">Mauricio Márquez Gutiérrez</p>
+    <p style="font-size:24px;color:#6E8097">Taller Conectado · 2026</p>
+    </div>
+    </section>
+  </div>
+</div>
+<div id="hud" aria-label="Navegación de diapositivas">
+  <button id="prev" aria-label="Anterior">‹</button>
+  <span class="num" id="num">1 / 12</span>
+  <button id="next" aria-label="Siguiente">›</button>
+</div>
+<script>
+(function () {
+  var ICONS = {"Check":"<path d=\"M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z\"/>","CheckCircle":"<path d=\"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8z\"/>","Lock":"<path d=\"M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z\"/>","Clock":"<path d=\"M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z\"/>","Database":"<path d=\"M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4zm0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z\"/>","Key":"<path d=\"M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z\"/>","Verified":"<path d=\"m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z\"/>"};
+  document.querySelectorAll("x-icon").forEach(function (el) {
+    var p = ICONS[el.getAttribute("name")] || "";
+    el.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' + p + "</svg>";
+  });
+
+  var slides = Array.prototype.slice.call(document.querySelectorAll("#stage > section"));
+  var ids = slides.map(function (s) { return s.id; });
+  var cur = 0;
+
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    document.getElementById("stage").style.transform =
+      "translate(-50%, -50%) scale(" + s + ")";
+  }
+
+  function show(i, firstLoad) {
+    cur = Math.max(0, Math.min(slides.length - 1, i));
+    slides.forEach(function (s, j) {
+      s.classList.toggle("off", j !== cur);
+      s.classList.toggle("on", j === cur && !firstLoad);
+    });
+    document.getElementById("num").textContent = (cur + 1) + " / " + slides.length;
+    history.replaceState(null, "", "#" + (cur + 1));
+  }
+
+  function fromHash() {
+    var h = location.hash.replace("#", "");
+    var byId = ids.indexOf(h);
+    if (byId >= 0) return byId;
+    var n = parseInt(h, 10);
+    return isNaN(n) ? 0 : n - 1;
+  }
+
+  document.getElementById("next").addEventListener("click", function () { show(cur + 1); });
+  document.getElementById("prev").addEventListener("click", function () { show(cur - 1); });
+  window.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight" || e.key === "PageDown" || (e.key === " " && !e.shiftKey)) { e.preventDefault(); show(cur + 1); }
+    else if (e.key === "ArrowLeft" || e.key === "PageUp" || (e.key === " " && e.shiftKey)) { e.preventDefault(); show(cur - 1); }
+    else if (e.key === "Home") show(0);
+    else if (e.key === "End") show(slides.length - 1);
+  });
+  var tx = null;
+  window.addEventListener("touchstart", function (e) { tx = e.changedTouches[0].clientX; }, { passive: true });
+  window.addEventListener("touchend", function (e) {
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    if (dx < -50) show(cur + 1);
+    else if (dx > 50) show(cur - 1);
+    tx = null;
+  }, { passive: true });
+  window.addEventListener("hashchange", function () { show(fromHash()); });
+  window.addEventListener("resize", fit);
+
+  fit();
+  show(fromHash(), true);
+})();
+</script>
+</body>
+</html>
